@@ -1,0 +1,18 @@
+---
+- hosts: rocky
+  become: true
+  become_user: root
+
+  tasks:
+
+    - name: ensure apache is at the latest version
+      dnf: name=httpd,php,php-mysqli state=latest
+
+    - name: ensure httpd is started
+      systemd: name=httpd state=started
+
+    - name: ensure mariadb is at the latest version
+      dnf: name=mariadb-server state=latest
+
+    - name: ensure mariadb is started
+      systemd: name=mariadb state=started

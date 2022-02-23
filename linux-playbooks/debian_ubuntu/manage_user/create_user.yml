@@ -1,0 +1,14 @@
+---
+- hosts: ubuntu
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+      ansible.builtin.user:
+        name: johnd
+        comment: John Doe
+        uid: 1040
+        group: users
+        shell: /bin/bash
+        expires: 1422403387

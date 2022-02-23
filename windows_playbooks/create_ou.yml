@@ -1,0 +1,18 @@
+---
+-  name: "Create OU"
+   hosts: windows
+   tasks:
+   - win_shell: install-packageprovider -name nuget -force
+   - name: "Install XactiveDirectory"
+     win_psmodule:
+        name: ActiveDirectoryDSC
+        state: present
+   - name: "Create OU"
+     win_dsc:
+        resource_name: ADOrganizationalUnit
+        name: "Compta"
+        path:
+        - "dc=pleckspaen, dc=com"
+        - "dc=hello, dc=pleckspaen, dc=com"
+        - "dc=test, dc=pleckspaen, dc=com"
+ 

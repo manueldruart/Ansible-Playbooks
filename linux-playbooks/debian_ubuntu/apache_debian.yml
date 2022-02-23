@@ -1,0 +1,30 @@
+---
+- hosts: debian
+  become: true
+  become_method: sudo
+ 
+  tasks:
+    - name: "Update packages and upgrade"
+      apt:
+        update_cache: true
+        upgrade: dist
+        force_apt_get: true
+    - name: "Install Apache server"
+      apt:
+        name: apache2
+        state: latest
+    - name: "Create document root"
+      file:
+        path: "/var/www/html"
+        state: directory
+        owner: "www-data"
+        mode: 0755
+    - name: "Enable Apache on Firewall"
+      ufw:
+        rule: allow
+        port: 80
+        proto: tcp
+    - name: "restart apache2 service"
+      service:
+        name: apache2
+        state: restarted

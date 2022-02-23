@@ -1,0 +1,7 @@
+---
+mysql_root_password: "tux"
+app_user: "tux"
+http_host: "egeria.lan"
+http_conf: "egeria.lan.conf"
+http_port: "80"
+disable_default: true

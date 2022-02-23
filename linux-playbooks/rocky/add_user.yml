@@ -1,0 +1,21 @@
+---
+- hosts: rocky
+  become: true
+  become_user: root
+  vars:
+    users:
+      antoine:
+        group: users
+        state: present
+      steven:
+        group: wheel
+        state: present
+
+  tasks:
+
+  - name: Manage users
+    user:
+      name: "{{ item.key }}"
+      group: "{{ item.value.group }}"
+      state: "{{ item.value.state }}"
+    loop: "{{ users | dict2items }}"

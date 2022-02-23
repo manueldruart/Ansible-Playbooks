@@ -1,0 +1,7 @@
+---
+mysql_root_password: "mysql_root_password"
+app_user: "lucas"
+http_host: "lucas.org"
+http_conf: "lucas.org.conf"
+http_port: "80"
+disable_default: true

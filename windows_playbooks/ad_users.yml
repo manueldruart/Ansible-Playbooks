@@ -1,0 +1,12 @@
+---
+- name: "Add Active Directory User"
+  hosts: windows
+  tasks:
+    - name: Ensure user is present in OU ou=test,dc=domain,dc=local
+      win_domain_user:
+        name: laurent
+        password: Test1234
+        state: present
+        path: ou=Direction,dc=pleckspaen,dc=com
+        groups:
+          - Domain Admins

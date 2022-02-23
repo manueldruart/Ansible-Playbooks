@@ -1,0 +1,13 @@
+[haproxy-deb2]
+10.10.27.225
+
+[swarm_managers]
+10.10.27.206
+10.10.10.200
+
+[gluster_nodes]
+10.10.10.206
+10.10.10.200
+
+[all:vars]
+ansible_connection=ssh

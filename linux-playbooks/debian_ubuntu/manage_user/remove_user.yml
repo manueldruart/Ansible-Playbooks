@@ -1,0 +1,11 @@
+---
+- hosts: ubuntu
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Remove the user 'johnd'
+      ansible.builtin.user:
+        name: johnd
+        state: absent
+        remove: yes
