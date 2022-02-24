@@ -1,0 +1,28 @@
+---
+- hosts: nodes
+  tasks:
+  - name: "copying file with playbook"
+    copy:
+      src: ./Pod/pod.yaml
+      dest: /tmp/pod.yaml
+  - name: copying file with playbook
+    copy:
+      src: ./Deploy/deployment.yaml
+      dest: /tmp/deployment.yaml #Creating a Kubernetes pod in test using file stored on local.
+  - name: "Create a pod"
+    k8s:
+      state: present
+      namespace: gaston-mdruart
+      src: /tmp/pod.yaml #Checking if the Kubernetes pods is running on the cluster.
+  - name: "Status of the pod"
+    k8s:
+      api_version: v1
+      kind: pod
+      name: nginx
+      namespace: gaston-mdruart
+    register: web_service #Creating a Kubernetes deployment in test using file stored locally
+  - name: "Create a deployment"
+    k8s:
+      state: present
+      namespace: gaston-mdruart
+      src: /tmp/deployment.yaml #CleanUP all the applied configurations
