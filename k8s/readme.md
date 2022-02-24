@@ -1,4 +1,4 @@
-<h1>Ansible Playbooks to be deploy on your Kubernetes clusters</h1>
+<h1>Ansible Playbooks to be deploy on Kubernetes clusters</h1>
 <h2>Available Playbooks</h2>
 <p>- Apache2 (httpd)</p>
 <p>- Nginx</p>
