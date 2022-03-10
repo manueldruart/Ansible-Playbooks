@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-Namespace: your_namespace
+Namespace: gaston-mdruart
 metadata:     
   name: apache2 
   labels:

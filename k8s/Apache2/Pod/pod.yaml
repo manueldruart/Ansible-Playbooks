@@ -1,6 +1,6 @@
 apiVersion: v1
 kind: Pod
-Namespace: your_namespace
+Namespace: gaston-mdruart
 metadata:
   name: apache2
   labels:

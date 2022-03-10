@@ -1,5 +1,4 @@
----
-# cybergavin 
+--- 
 # Prepare a node for Kubernetes
 #
 - name: Turn off swap 
@@ -13,10 +12,10 @@
     regexp: '\sswap\s'
     state: absent 
 
-- name: Put SELinux in permissive mode, logging actions that would be blocked.
-  selinux:
-    policy: targeted
-    state: permissive
+#- name: Put SELinux in permissive mode, logging actions that would be blocked.
+#  selinux:
+#    policy: targeted
+#    state: permissive
 
 - name: Disable firewalld 
   systemd:

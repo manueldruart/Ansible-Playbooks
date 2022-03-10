@@ -12,17 +12,17 @@
   - name: "Create a pod"
     k8s:
       state: present
-      namespace: your_namespace
+      namespace: gaston-mdruart
       src: /tmp/pod.yaml #Checking if the Kubernetes pods is running on the cluster.
   - name: "Status of the pod"
     k8s:
       api_version: v1
       kind: pod
       name: apache2
-      namespace: your_namespace
+      namespace: gaston-mdruart
     register: web_service #Creating a Kubernetes deployment in test using file stored locally
   - name: "Create a deployment"
     k8s:
       state: present
-      namespace: your_namespace
+      namespace: gaston-mdruart
       src: /tmp/deployment.yaml #CleanUP all the applied configurations

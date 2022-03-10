@@ -4,7 +4,7 @@ The create-k8s-basic directory contains an ansible playbook (k8s_create.yaml) th
 
 ## Pre-Requisites
 - Three pre-provisioned RHEL 8 nodes with connectivity to the Internet to download packages and images from repositories and registries.
-- A user account (auto.svc in my playbook) with sudo (root) privileges provisioned on the ansible control node and all RHEL 8 nodes. Also ensure that the user’s SSH keys are set up to allow execution of the ansible playbook.
+- A user account (tux in my playbook) with sudo (root) privileges provisioned on the ansible control node and all RHEL 8 nodes. Also ensure that the user’s SSH keys are set up to allow execution of the ansible playbook.
 
 ## Implementation
 - Set the POD and SERVICE network CIDR blocks in vars/main.yaml
@@ -12,4 +12,7 @@ The create-k8s-basic directory contains an ansible playbook (k8s_create.yaml) th
 - Execute the following command:
 
       ansible-playbook -i files/inventory k8s_create.yaml
+
+## For Rocky 8
+- To apply this playbook to a rocky 8, comment the SEL part in the k8s_prep.yaml
 

@@ -1,5 +1,4 @@
 ---
-# cybergavin 
 # Obtaining information for adding worker nodes
 # 
 - name: Create bootstrap token with kubeadm {{ ansible_facts['nodename'] }}

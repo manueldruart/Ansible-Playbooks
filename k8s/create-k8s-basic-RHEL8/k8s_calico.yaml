@@ -1,5 +1,4 @@
 ---
-# cybergavin 
 # Install Calico with Tigera operator - https://docs.projectcalico.org/getting-started/kubernetes/quickstart
 
 - name: Create .kube directory
