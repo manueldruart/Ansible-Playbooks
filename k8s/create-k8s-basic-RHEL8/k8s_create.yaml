@@ -8,7 +8,8 @@
   become: yes
   gather_facts: True
   tasks:
-    - include: k8s_prep.yaml
+    - name: k8s prep
+      include_tasks: k8s_prep.yaml
 
 - name: Create the Kubernetes cluster 
   hosts: master
@@ -16,14 +17,18 @@
   become: yes
   gather_facts: True
   tasks:
-    - include: k8s_cp_init.yaml 
-    - include: k8s_calico.yaml 
-    - include: k8s_joincommand.yaml 
+    - name: cp init
+      include_tasks: k8s_cp_init.yaml
+    - name: calico   
+      include_tasks: k8s_calico.yaml 
+    - name: Join  
+      include_tasks: k8s_joincommand.yaml 
 
 - name: Join nodes to the Kubernetes cluster 
-  hosts: nodes 
+  hosts: worker 
   remote_user: tux
   become: yes
   gather_facts: True
   tasks:
-    - include: k8s_join_node.yaml 
+    - name: join node
+      include_tasks: k8s_join_node.yaml 
