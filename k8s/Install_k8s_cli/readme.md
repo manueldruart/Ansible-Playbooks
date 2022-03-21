@@ -161,3 +161,26 @@ Operate the master node and verify that worker node joined the cluster
 ```
 kubectl get nodes
 ```
+
+## Connect to Dashboard
+
+The Dashboard UI is not deployed by default. To deploy it, run the following command:
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
+```
+
+## Accessing the Dashboard UI
+To protect your cluster data, Dashboard deploys with a minimal RBAC configuration by default. Currently, Dashboard only supports logging in with a Bearer Token. To create a token for this demo, you can follow our guide on creating a sample user.
+
+### Getting a Bearer Token
+
+```
+kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
+```
+
+## Command line proxy
+You can enable access to the Dashboard using the kubectl command-line tool, by running the following command: 
+
+```
+kubectl proxy
+```
