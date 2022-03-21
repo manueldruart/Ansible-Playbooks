@@ -172,10 +172,10 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/a
 ## Accessing the Dashboard UI
 To protect your cluster data, Dashboard deploys with a minimal RBAC configuration by default. Currently, Dashboard only supports logging in with a Bearer Token. To create a token for this demo, you can follow our guide on creating a sample user.
 
-### Getting a Bearer Token
+### Getting Token
 
 ```
-kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | awk '/^deployment-controller-token-/{print $1}') | awk '$1=="token:"{print $2}'
 ```
 
 ## Command line proxy
