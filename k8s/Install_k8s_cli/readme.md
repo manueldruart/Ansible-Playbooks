@@ -38,7 +38,7 @@ Restart Docker and enable on boot
 sudo systemctl enable --now docker
 ```
 ```
-sudo systemctl status docker
+sudo systemctl daemon-reload
 ```
 ```
 sudo systemctl restart docker
