@@ -56,9 +56,6 @@ sudo usermod -aG docker ${USER}
 su - $USER
 ```
 ```
-su - $USER
-```
-```
 id 
 ```
 ```
@@ -183,4 +180,12 @@ You can enable access to the Dashboard using the kubectl command-line tool, by r
 
 ```
 kubectl proxy
+```
+Acces the dashboard with this address :
+```
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+```
+## Create Role binding
+```
+$ kubectl create clusterrolebinding deployment-controller --clusterrole=cluster-admin --serviceaccount=kube-system:deployment-controller
 ```
